@@ -1,0 +1,12 @@
+#board {
+  border: solid black;
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  .gridBox {
+    border: solid black;
+  }
+}
