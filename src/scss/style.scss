@@ -1,12 +1,26 @@
-#board {
-  border: solid black;
-  width: 500px;
-  height: 500px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .gridBox {
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #board {
     border: solid black;
+    width: 90%;
+    height: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    .gridBox {
+      border: solid black;
+    }
   }
 }
