@@ -1,4 +1,5 @@
 import "../scss/style.scss";
+import { createO, createX } from "./createHtml";
 import { Gridbox } from "./models/Gridbox";
 
 const board = document.getElementById("board");
@@ -22,15 +23,17 @@ for (let i = 1; i < 10; i++) {
       return;
     }
 
-    gridBox.innerHTML = "You clicked me";
-
     newGridBox.filled = true;
 
     count++;
     console.log(count);
 
     if (count % 2 == 0) {
-      console.log("hello");
+      console.log("X");
+      createX(gridBox);
+    } else {
+      console.log("O");
+      createO(gridBox);
     }
   });
 }
