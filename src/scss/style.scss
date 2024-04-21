@@ -21,6 +21,9 @@ body {
 
     .gridBox {
       border: solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
