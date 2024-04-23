@@ -1,25 +1,21 @@
-export const createX = (gridBox: HTMLElement, xList: HTMLImageElement[]) => {
+export const createX = (gridBox: HTMLElement) => {
   const x = document.createElement("img");
+
+  x.classList.add("symbol");
 
   x.src = "/src/img/x-solid.svg";
 
   gridBox.appendChild(x);
-
-  xList.push(x);
-
-  console.log(xList);
 };
 
-export const createO = (gridBox: HTMLElement, oList: HTMLImageElement[]) => {
+export const createO = (gridBox: HTMLElement) => {
   const o = document.createElement("img");
+
+  o.classList.add("symbol");
 
   o.src = "/src/img/o-solid.svg";
 
   gridBox.appendChild(o);
-
-  oList.push(o);
-
-  console.log(oList);
 };
 
 export const createActivityContainer = (activity: string) => {

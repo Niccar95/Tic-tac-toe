@@ -1,3 +1,5 @@
+@use "breakpoints";
+
 * {
   margin: 0;
   padding: 0;
@@ -10,20 +12,43 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include breakpoints.desktop() {
+    justify-content: center;
+  }
 
   #board {
-    border: solid black;
     width: 90%;
     height: 40%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+
+    @include breakpoints.desktop() {
+      width: 600px;
+      height: 600px;
+    }
 
     .gridBox {
-      border: solid black;
+      border: solid 0.5px rgb(139, 139, 139);
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
+    }
+
+    .gridBox:hover {
+      background-color: rgb(239, 239, 239);
+    }
+
+    .symbol {
+      width: 50px;
+      height: 50px;
+
+      @include breakpoints.desktop() {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 }

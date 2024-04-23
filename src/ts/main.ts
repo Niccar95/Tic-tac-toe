@@ -2,19 +2,17 @@ import "../scss/style.scss";
 import { createActivityContainer, createO, createX } from "./createHtml";
 import { Gridbox } from "./models/Gridbox";
 import { getActivities } from "./services/activityService";
+import { checkForWin } from "./winPatterns";
 
 const board = document.getElementById("board");
 
 let count: number = 0;
 
-let list: Gridbox[] = [];
-
-let xList: HTMLImageElement[] = [];
-let oList: HTMLImageElement[] = [];
+export let list: Gridbox[] = [];
 
 for (let i = 1; i < 10; i++) {
   const gridBox = document.createElement("section");
-  let newGridBox = new Gridbox(i, gridBox, false);
+  let newGridBox = new Gridbox(i, gridBox, false, false, false);
   list.push(newGridBox);
 
   gridBox.classList.add("gridBox");
@@ -31,11 +29,20 @@ for (let i = 1; i < 10; i++) {
     console.log(count);
 
     if (count % 2 == 0) {
-      console.log("X");
-      createX(gridBox, xList);
+      createX(gridBox);
+      newGridBox.hasX = true;
     } else {
-      console.log("O");
-      createO(gridBox, oList);
+      createO(gridBox);
+      newGridBox.hasO = true;
+    }
+
+    const winner = checkForWin();
+    if (winner && count % 2 == 0) {
+      console.log("Player X has won!");
+    } else if (winner && count % 2 == 1) {
+      console.log("Player O has won!");
+    } else {
+      console.log("Continue game...");
     }
   });
 }
